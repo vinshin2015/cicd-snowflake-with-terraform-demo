@@ -6,7 +6,7 @@ terraform {
     }
   }
 
-  backend "s3" {
+  /* backend "s3" {
     bucket         = "<your-bucket-name>"
     key            = "terraform-staging.tfstate"
     region         = "<bucket-region>"
@@ -14,7 +14,7 @@ terraform {
     # dynamodb_table = "terraform-state-lock-table"
     encrypt        = true
     role_arn       = "arn:aws:iam::<your-aws-account-no>:role/<terraform-s3-backend-access-role>"
-  }
+  } */
 }
 
 provider "snowflake" {
