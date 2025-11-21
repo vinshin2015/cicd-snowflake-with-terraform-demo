@@ -20,7 +20,7 @@ terraform {
 provider "snowflake" {
   username    = "SVC_DEVOPS"
   account     = "HGADUCS-BYB05099"
-  role        = "TF_DEMO_READER"
+  role        = "ACCOUNTADMIN"
   private_key = var.snowflake_private_key
 }
 
