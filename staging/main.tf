@@ -18,9 +18,9 @@ terraform {
 }
 
 provider "snowflake" {
-  username    = "<your_snowflake_username>"
-  account     = "<your_snowflake_account_identifier>"
-  role        = "<your_snowflake_role>"
+  username    = "SVC_DEVOPS"
+  account     = "HGADUCS-BYB05099"
+  role        = "TF_DEMO_READER"
   private_key = var.snowflake_private_key
 }
 
