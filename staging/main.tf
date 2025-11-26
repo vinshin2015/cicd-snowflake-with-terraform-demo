@@ -1,11 +1,19 @@
 terraform {
+  cloud { 
+    
+    organization = "Ank_DevOps" 
+
+    workspaces { 
+      name = "snowflake_devops" 
+    } 
+  }   
   required_providers {
     snowflake = {
       source  = "Snowflake-Labs/snowflake"
-      version = "~> 0.94.0"
+      version = "0.63.0"
     }
   }
-
+}
   /* backend "s3" {
     bucket         = "<your-bucket-name>"
     key            = "terraform-staging.tfstate"

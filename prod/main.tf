@@ -9,11 +9,11 @@ terraform {
   }   
   required_providers {
     snowflake = {
-      source  = "Snowflake-Labs/snowflake"
-      version = "~> 0.94.0"
+      source = "snowflakedb/snowflake"
     }
   }
-
+  
+}
   /* backend "s3" {
     bucket         = "<your-bucket-name>"
     key            = "terraform-prod.tfstate"
