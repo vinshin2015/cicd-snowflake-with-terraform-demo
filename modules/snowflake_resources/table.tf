@@ -1,7 +1,7 @@
 resource "snowflake_table" "demo_table" {
   database   = snowflake_database.tf_demo_database.name
   schema     = snowflake_schema.tf_demo_schema.name
-  depends_on = [snowflake_table_grant.table_ro_grant]
+  depends_on = [snowflake_grant_privileges_to_account_role.future_table_ro_grant]
   name       = "DEMO_TABLE"
   comment    = "An empty table for Terraform demo"
 

@@ -1,19 +1,10 @@
 terraform {
-  cloud { 
-    
-    organization = "Ank_DevOps" 
-
-    workspaces { 
-      name = "snowflake_devops" 
-    } 
-  }   
   required_providers {
     snowflake = {
-      source  = "Snowflake-Labs/snowflake"
-      version = "0.63.0"
+      source = "snowflakedb/snowflake"
     }
   }
-}
+
   /* backend "s3" {
     bucket         = "<your-bucket-name>"
     key            = "terraform-staging.tfstate"
@@ -26,10 +17,12 @@ terraform {
 }
 
 provider "snowflake" {
-  username    = "SVC_DEVOPS"
-  account     = "HGADUCS-BYB05099"
-  role        = "ACCOUNTADMIN"
-  private_key = var.snowflake_private_key
+    organization_name = "hgaducs"
+    account_name     = "BYB05099"
+    user    = "SVC_DEVOPS"
+    role        = "ACCOUNTADMIN"
+    authenticator     = "SNOWFLAKE_JWT"
+    private_key = var.snowflake_private_key
 }
 
 module "snowflake_resources" {
