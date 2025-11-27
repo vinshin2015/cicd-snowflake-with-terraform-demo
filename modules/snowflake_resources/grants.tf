@@ -24,10 +24,10 @@ resource "snowflake_grant_privileges_to_account_role" "schema_ro_grant" {
   privileges        = ["USAGE"]
 
   # Specifies the target object (a Schema)
-  on_schema_object {
+  on_schema {
     object_type = "SCHEMA"
     # Note: The object_name must be the fully qualified name (Database.Schema)
-    object_name = "${snowflake_database.tf_demo_database.name}.${snowflake_schema.tf_demo_schema.name}"
+    schema_name = "${snowflake_database.tf_demo_database.name}.${snowflake_schema.tf_demo_schema.name}"
   }
 }
 
