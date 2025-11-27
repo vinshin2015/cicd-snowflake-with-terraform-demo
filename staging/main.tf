@@ -17,12 +17,13 @@ terraform {
 }
 
 provider "snowflake" {
-  organization_name = "hgaducs"
-  account_name      = "BYB05099"
-  user              = "SVC_DEVOPS"
-  role              = "ACCOUNTADMIN"
-  authenticator     = "SNOWFLAKE_JWT"
-  private_key       = var.snowflake_private_key
+  organization_name        = "hgaducs"
+  account_name             = "BYB05099"
+  user                     = "SVC_DEVOPS"
+  role                     = "ACCOUNTADMIN"
+  authenticator            = "SNOWFLAKE_JWT"
+  private_key              = var.snowflake_private_key
+  preview_features_enabled = ["snowflake_table_resource", ]
 }
 
 module "snowflake_resources" {
