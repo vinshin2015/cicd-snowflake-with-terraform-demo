@@ -25,7 +25,6 @@ resource "snowflake_grant_privileges_to_account_role" "schema_ro_grant" {
 
   # Specifies the target object (a Schema)
   on_schema {
-    object_type = "SCHEMA"
     # Note: The object_name must be the fully qualified name (Database.Schema)
     schema_name = "${snowflake_database.tf_demo_database.name}.${snowflake_schema.tf_demo_schema.name}"
   }
@@ -40,9 +39,9 @@ resource "snowflake_grant_privileges_to_account_role" "future_table_ro_grant" {
 
   # Specifies the target for FUTURE objects within a Schema
   on_schema_object {
-    future  {
+    future {
       object_type_plural = "TABLES" # Plural form
-      in_schema = "${snowflake_database.tf_demo_database.name}.${snowflake_schema.tf_demo_schema.name}"
+      in_schema          = "${snowflake_database.tf_demo_database.name}.${snowflake_schema.tf_demo_schema.name}"
     }
   }
 
@@ -61,12 +60,12 @@ resource "snowflake_grant_privileges_to_account_role" "future_view_ro_grant" {
 
   # Specifies the target for FUTURE objects within a Schema
   on_schema_object {
-    future  {
+    future {
       object_type_plural = "VIEWS" # Plural form
-      in_schema = "${snowflake_database.tf_demo_database.name}.${snowflake_schema.tf_demo_schema.name}"
+      in_schema          = "${snowflake_database.tf_demo_database.name}.${snowflake_schema.tf_demo_schema.name}"
     }
   }
-  
+
   always_apply      = true
   with_grant_option = false
 }
