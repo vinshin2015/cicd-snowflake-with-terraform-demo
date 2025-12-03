@@ -31,4 +31,9 @@ resource "snowflake_table" "demo_table" {
     type     = "TIMESTAMP_NTZ(9)"
     
   }
+  column {
+    name     = "flag"
+    type     = "text"
+    
+  }
 }
