@@ -1,4 +1,4 @@
-name: "STAGING ENV: Snowflake Terraform Demo Workflow"
+name: "p1 ENV: Snowflake Terraform Demo Workflow"
 
 on: 
   push:
@@ -6,8 +6,8 @@ on:
       - p1
 
 jobs:
-  deploy-terraform-staging:
-    name: "Plan & Deploy Terraform plan on Staging"
+  deploy-terraform-p1:
+    name: "Plan & Deploy Terraform plan on p1"
     runs-on: ubuntu-latest
     permissions:
       pull-requests: write
@@ -28,24 +28,24 @@ jobs:
           cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
       - name: Terraform Init
         id: init
-        run: terraform -chdir=./staging init
+        run: terraform -chdir=./p1 init
 
       - name: Terraform Format
         id: fmt
-        run: terraform -chdir=./staging fmt -recursive -check
+        run: terraform -chdir=./p1 fmt -recursive -check
 
       - name: Terraform Validate
         id: validate
-        run: terraform -chdir=./staging validate -no-color
+        run: terraform -chdir=./p1 validate -no-color
 
       - name: Terraform Plan
         id: plan
-        run: terraform -chdir=./staging plan 
+        run: terraform -chdir=./p1 plan 
         env:
           TF_VAR_snowflake_private_key: ${{ secrets.SNOWFLAKE_PRIVATE_KEY }}
 
       - name: Terraform Apply
         id: apply
-        run: terraform -chdir=./staging apply -auto-approve
+        run: terraform -chdir=./p1 apply -auto-approve
         env:
           TF_VAR_snowflake_private_key: ${{ secrets.SNOWFLAKE_PRIVATE_KEY }}
