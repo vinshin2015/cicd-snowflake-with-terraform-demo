@@ -26,4 +26,9 @@ resource "snowflake_table" "demo_table" {
     type     = "TIMESTAMP_NTZ(9)"
     
   }
+    column {
+    name     = "update_date"
+    type     = "TIMESTAMP_NTZ(9)"
+    
+  }
 }
