@@ -21,4 +21,9 @@ resource "snowflake_table" "demo_table" {
     name = "DATE"
     type = "TIMESTAMP_NTZ(9)"
   }
+  column {
+    name     = "insert date"
+    type     = "TIMESTAMP_NTZ(9)"
+    
+  }
 }
