@@ -35,7 +35,7 @@ resource "snowflake_table" "demo_table" {
     column {
     name     = "Flag"
     type     = "text"
-    nullable = false
+   
   }
 
 }
